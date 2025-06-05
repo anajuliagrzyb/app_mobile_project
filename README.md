@@ -1,16 +1,11 @@
-# app_mobile_project
+🎬 Filmes TV
+Aplicativo Flutter desenvolvido por Ana Julia, Fátima Beatriz e Patrick Luan como exercício final da disciplina Programação para Dispositivos Móveis.
+O app permite gerenciar um catálogo de filmes com cadastro, edição, visualização, exclusão e avaliação por estrelas.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🔍 Como rodar o projeto
+1. Clone este repositório:
+   git@github.com:anajuliagrzyb/app_mobile_project.git
+2. Instale as dependências:
+   flutter pub get
+3. Execute o app:
+   flutter run
