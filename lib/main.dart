@@ -18,9 +18,9 @@ class FilmesApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         appBarTheme: AppBarTheme(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-      ),
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+        ),
       ),
       home: ListaFilmesPage(),
     );
@@ -53,7 +53,7 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Grupo'),
-        content: Text('Nome dos integrantes: Fátima, Júlia e Patrick'),
+        content: Text('Nome dos integrantes: Fátima, Ana Julia e Patrick'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -112,7 +112,7 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista de Filmes'),
+        title: Text('Filmes'),
         actions: [
           IconButton(
             icon: Icon(Icons.info_outline),
@@ -136,27 +136,64 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
             onDismissed: (_) => _deletarFilme(filme.id!),
             child: Card(
               margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              child: ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 3,
+              child: InkWell(
                 onTap: () => _mostrarOpcoes(filme),
-                leading: Image.network(
-                  filme.urlImagem,
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Icon(Icons.error),
-                ),
-                title: Text(filme.titulo),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(filme.genero),
-                    RatingBarIndicator(
-                      rating: filme.pontuacao,
-                      itemBuilder: (context, _) => Icon(Icons.star, color: Colors.amber),
-                      itemCount: 5,
-                      itemSize: 20,
-                    ),
-                  ],
+                child: Container(
+                  padding: EdgeInsets.all(12),
+                  height: 160,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.network(
+                          filme.urlImagem,
+                          width: 100,
+                          height: 140,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Container(
+                                width: 100,
+                                height: 140,
+                                color: Colors.grey[300],
+                                child: Icon(Icons.broken_image, size: 40),
+                              ),
+                        ),
+                      ),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              filme.titulo,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            SizedBox(height: 4),
+                            Text(filme.genero),
+                            Text('${filme.duracao} min'),
+                            SizedBox(height: 8),
+                            RatingBarIndicator(
+                              rating: filme.pontuacao,
+                              itemBuilder: (context, _) => Icon(Icons.star, color: Colors.amber),
+                              itemCount: 5,
+                              itemSize: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -165,7 +202,8 @@ class _ListaFilmesPageState extends State<ListaFilmesPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _abrirCadastro(),
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white),
+        backgroundColor: Colors.blue,
         tooltip: 'Cadastrar novo filme',
       ),
     );

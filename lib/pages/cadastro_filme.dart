@@ -143,7 +143,7 @@ Widget build(BuildContext context) {
     floatingActionButton: FloatingActionButton(
       onPressed: _salvarFilme,
       backgroundColor: Colors.blue,
-      child: Icon(Icons.save),
+      child: Icon(Icons.save, color: Colors.white,),
     ),
   );
 }
