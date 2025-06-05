@@ -1,4 +1,5 @@
 🎬 Filmes TV
+
 Aplicativo Flutter desenvolvido por Ana Julia, Fátima Beatriz e Patrick Luan como exercício final da disciplina Programação para Dispositivos Móveis.
 O app permite gerenciar um catálogo de filmes com cadastro, edição, visualização, exclusão e avaliação por estrelas.
 
